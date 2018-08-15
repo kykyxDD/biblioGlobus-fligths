@@ -1,0 +1,30 @@
+{
+  "name": "train-registration",
+  "version": "1.0.0",
+  "description": "Registration on train",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "train",
+    "registration"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sequence": "^0.4.5",
+    "gulp-watch": "^4.3.5",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.2"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-zip": "^4.1.0",
+    "yargs": "^11.0.0"
+  }
+}

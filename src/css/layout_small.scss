@@ -1,0 +1,481 @@
+@import "global";
+@import "urlImageBase64.scss";
+
+
+body {
+	font-size: 50%;
+}
+.logo {
+	@include rect(0, 6px, 132px, 35px);
+	border-radius: 0 35px 35px 0;
+	background-size: 115px;
+	background-position: 6px;
+}
+.icon-helper {
+	@include pos(25px, 60px);
+	border-radius: 3px;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 8px 7px 8px 25px;
+	color: #fff;
+	font-family: Arial, sans-serif;
+	text-transform: uppercase;
+	font-size: 8px;
+	cursor: pointer;
+
+	&:before {
+		@include pos(0px, 50%);
+		content: '';
+
+		margin-top: -15px;
+		margin-left: -15px;
+		width: 30px;
+		height: 30px;
+		background-size: contain;
+		background-image: url($imageHelper);
+		background-position: center;
+	}
+	
+}
+.popup_help {
+	@include rect(-132px, 25px, 132px,auto);
+	bottom: 0;
+	background-color: rgba(0,0,0,0.7);
+	@include fix(transition, left 0.15s ease);
+
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+
+	&.show {
+		left: 0px;
+	}
+
+	.popup_help__close {
+		position: absolute;
+		top: 20px;
+		right: 5px;
+		width: 20px;
+		height: 20px;
+		background-position: center;
+		background-size: 60%;
+		background-image: url($imageBtnCloseSmall);
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	.popup_help__info {
+		padding-top: 80px;
+    padding-left: 10px;
+
+		.box_wrap_selection {
+			width: 20px;
+			height: 20px;
+			position: relative;
+			text-align: center;
+			svg {
+				fill: rgba(64, 255, 64, 0.8);
+			}
+			.label {
+				position: absolute;
+				font: 8px/2 Arial;
+				width: 100%;
+				color: initial;
+			}
+		}
+		.box_wrap {
+			width: 20px;
+			height: 20px;
+			position: relative;
+			text-align: center;
+			background-color: rgba(0,0,0, 0.3);
+			.label {
+				position: absolute;
+				font: 8px/2 Arial;
+				width: 100%;
+				top: 50%;
+				margin-top: -8px;
+			}
+		}
+		.name_seat {
+			padding-left: 5px;
+		}
+		.popop_help__listSeats {
+			margin-bottom: 10px;
+			border-spacing: 2px 5px;
+		}
+		.popop_help__listCategory {
+			td { 
+				vertical-align: middle;
+			}
+			
+			.img {
+				width: 20px;
+				height: 30px;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+			.name {
+				padding-left: 5px;
+			}
+		}
+	}
+
+}
+
+
+.view {
+	.switch-deck {
+		@include size(80px, 37px);
+		background-repeat: no-repeat;
+		padding-top: 12px;
+		font-size: 1.1em;
+
+		&.two {
+			@include pos2(-3px, 60px);
+		}
+		&.one {
+			@include pos2(-3px, 24px);
+		}
+	}
+}
+.controls {
+	.screen {
+		display: none;
+
+		.board-num {
+			font-size: 1.5em;
+			font-weight: bold;
+			padding: 4px;
+		}
+		.airline-logo-small {
+			@include coords(auto, 0px, 6px, auto);
+			@include size(75px, 25px);
+		}
+		.nav {
+			@include fix(transform, scale(0.5));
+		}
+	}
+	.board-info-table {
+		font-size: 1.4em;
+
+		table {
+			width: 100%;
+		}
+	}
+	.board-info {
+		.route {
+			margin: 3px 0px;
+		}
+		.cred {
+			padding: 2px;
+
+			.number, .date {
+				line-height: 1;
+				display: block;
+				float: none;
+			}
+		}
+	}
+	.users-box .users .user {
+		height: 29px;
+
+		&.infant {
+			height: 14px;
+		}
+		.info {
+			padding-left: 6px;
+
+			.name {
+				padding: 1px 0;
+			}
+			.status {
+
+				tr {
+					height: 7px;
+				}
+				.place, .class {
+					display: none;
+				}
+				.message td {
+					padding-bottom: 2px;
+				}
+			}
+		}
+		.print {
+			width: 33px;
+
+			.icon {
+				display: none;
+			}
+		}
+		.class {
+			display: none;
+		}
+		.ok {
+			display: none;
+			width: 19px;
+			padding-top: 7px;
+
+			svg {
+				width: 9px;
+				height: 9px;
+			}
+		}
+	}
+	.confirm {
+		.confirm-caption {
+			padding-top: 22px;
+		}
+		.confirm-tick {
+			background-size: 17px 17px;
+		}
+	}
+}
+.popup {
+	.register {
+		@include rect(0, 0, 100%, 100%);
+		// @include core(400px, 310px);
+
+		.button-close {
+			@include coords(auto, 2px, 2px, auto);
+			@include size(35px, 35px);
+		}
+		.content {
+			.landscape & {
+				margin: 10px 40px;
+			}
+			.portrait & {
+				margin: 50px 10px;
+			}
+
+			.header .notice {
+				margin-top: 4px;
+			}
+		}
+		.headers-wrap {
+			width: auto;
+
+			.landscape & {
+				@include coords(60px, 60px, 60px, auto);
+			}
+			.portrait & {
+				@include coords(10px, 120px, 10px, auto);
+			}
+		}
+		.users-container {
+			.landscape & {
+				@include coords(60px, 80px, 60px, 50px);
+			}
+			.portrait & {
+				@include coords(10px, 145px, 10px, 60px);
+			}
+		}
+		.list {
+			td {
+				@include border-box;
+				padding: 0 6px;
+
+				&:nth-child(1) {
+					padding: 0 11px;
+				}
+				&:nth-child(2) {
+					width: 50px;
+				}
+				&:nth-child(3) {
+					width: 87px;
+				}
+			}
+			&.users {
+				.user td {
+					height: 20px;
+				}
+				.error td {
+					height: 7px;
+				}
+			}
+			&.headers {
+				height: 25px;
+
+				td {
+					@include border-box;
+					padding: 3px 6px;
+				}
+			}
+		}
+		.actions-wrap {
+			width: auto;
+
+			.landscape & {
+				@include coords(60px, auto, 60px, 0px);
+			}
+			.portrait & {
+				@include coords(10px, auto, 10px, 5px);
+			}
+		}
+		.actions {
+			.action {
+				@include size(110px, 39px);
+			}
+		}
+	}
+	.register-error {
+		@include core(300px, 150px);
+
+		.message {
+			padding: 15px;
+		}
+		.close {
+			@include coords(50%, auto, auto, 10px);
+			@include size(100px, 25px);
+			margin-left: -50px;
+			padding-top: 8px;
+		}
+	}
+}
+.background {
+	.center {
+		@include core(176px, 176px);
+	}
+}
+
+$col_width: 162px;
+$one_height: 119px;
+$two_height: 40px;
+.landscape {
+	$offset: 1px;
+	$column: $col_width + $offset * 2;
+
+	.view {
+		@include coords(0, 0, $column, 0);
+	}
+	.controls {
+		@include coords(auto, 0, 0, 0);
+		width: $column;
+
+		.board-info-table {
+			display: none;
+		}
+		.board-info {
+			@include rect($offset, $offset, $col_width, $two_height);
+		}
+		.users-box {
+			@include coords($offset, $two_height + $offset * 2, $offset, $two_height + $offset * 2);
+		}
+		.confirm {
+			@include coords(auto, auto, $offset, $offset);
+			@include size($col_width, $two_height);
+		}
+	}
+	.users-box .users .user {
+		.print {
+			width: 33px;
+		}
+		.class {
+			.label {
+				height: 9px;
+				line-height: 10px;
+			}
+			.value {
+				height: 12px;
+			}
+		}
+		.place {
+			width: 33px;
+			text-align: center;
+
+			.label {
+				height: 9px;
+				line-height: 10px;
+			}
+			.value {
+				height: 12px;
+			}
+		}
+	}
+	&.demo {
+		.controls {
+			.screen {
+				display: block;
+				@include rect($offset, $offset, $col_width, $one_height);
+			}
+			.airline-logo {
+				@include coords($offset, $one_height + $offset * 2, $offset, $two_height + $offset * 2);
+				// @include coords($second_column, $offset, $offset, $two_height + $offset * 2);
+				// background-size: auto 100%;
+			}
+		}
+	}
+}
+.portrait {
+	$offset: 4px;
+	$button_width: 50px;
+	$users_width: 80px;
+	$second_column: $col_width + $offset * 3;
+	$row_height: $users_width + $two_height + $offset * 3;
+
+	.view {
+		@include coords(0, 0, 0, $row_height);
+	}
+	.controls {
+		@include coords(0, auto, 0, 0);
+		height: $row_height;
+
+		.board-info-table {
+			@include rect($offset, $offset, auto, $two_height);
+			right: $button_width - $offset * 2;
+		}
+		.board-info {
+			display: none;
+		}
+		.users-box {
+			@include coords($offset, $two_height + $offset * 2, $offset, $offset);
+		}
+		.confirm {
+			@include size($button_width, $two_height);
+			@include coords(auto, $offset, $offset, auto);
+		}
+	}
+	.users-box .users .user {
+		font-size: 2.2em;
+		.print, .class, .place {
+			div {
+				display: inline-block;
+			}
+		}
+		.print {
+			width: 110px;
+		}
+		.class {
+			width: 100px;
+		}
+		.place {
+			width: 64px;
+		}
+	}
+	&.demo {
+		$row_height: $one_height + $offset * 2;
+
+		.view {
+			@include coords(0, 0, 0, $row_height);
+		}
+		.controls {
+			height: $row_height;
+
+			.board-info-table {
+				display: none;
+			}
+			.screen {
+				display: block;
+				@include rect($offset, $offset, $col_width, $one_height);
+			}
+			.airline-logo {
+				@include coords($second_column, $offset, $offset, $two_height + $offset * 2);
+				background-size: auto 100%;
+			}
+			.confirm {
+				@include coords($second_column, auto, $offset, $offset);
+				width: auto;
+				height: $two_height;
+			}
+		}
+	}
+}

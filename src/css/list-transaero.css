@@ -1,0 +1,74 @@
+.header {
+	display: none;
+	background-color: white;
+}
+.plane {
+	margin-bottom: 20px;
+}
+
+.plane, .plane table {
+	padding:0;
+	border-collapse: collapse;
+	width: 100%;
+}
+.plane th {
+	padding-top: 10px;
+	padding-bottom: 0;
+	font: bold 14px Arial;
+	color: #009ddd;
+	height: 35px;
+	text-align: left;
+	padding-left: 10px;
+	border-top: 1px solid #009ddd;
+	border-bottom: 1px solid #009ddd;
+}
+.plane-image {
+	width: 195px;
+}
+.plane-image img {
+	width: 180px;
+	height: 150px;
+}
+.model-list {
+	padding-top: 0;
+	padding-bottom: 2px;
+}
+.model-list table {
+	border-bottom: 2px solid #009ddd;
+}
+.model-list td {
+	padding: 0 10px;
+}
+.model-list a {
+	color: #5c6366;
+}
+.model-list, .plane-image {
+	padding-top: 0;
+	vertical-align: top;
+}
+.model {
+	border-width: 3px;
+	border-style: solid;
+	border-top: none;
+	border-bottom: none;
+}
+.capacity {
+
+}
+.model td {
+	height: 30px;
+	font: bold 12px Arial;
+	color: #5c6366;
+}
+.model:nth-child(odd) {
+	background-color: #d2e1ea;
+}
+
+.model-name {
+	width: 160px;
+}
+.model.orange  { border-color: #f58220; }
+.model.gray    { border-color: #919ea3; }
+.model.blue    { border-color: #007bad; }
+.model.skyblue { border-color: #43c9ff; }
+.model.yellow  { border-color: #ffbd5f; }

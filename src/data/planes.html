@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Qatar Airways</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="swfobject.js"></script>
+		<script>
+			function show_plane(uid)
+			{
+				console.log(uid)
+				
+				var cont = document.getElementById("wrapper")
+				cont.innerHTML = "<div id='flash_content'></div>"
+				
+				var swfVersionStr = "11.2.0";
+				<!-- xiSwfUrlStr can be used to define an express installer SWF. -->
+				var xiSwfUrlStr = "";
+				var flashvars = {};
+				flashvars.registration_number = uid
+				
+				var params = {};
+				params.quality = "high";
+				params.bgcolor = "#ffffff";
+				params.play = "true";
+				params.loop = "true";
+				params.wmode = "window";
+				params.scale = "showall";
+				params.menu = "true";
+				params.devicefont = "false";
+				params.salign = "";
+				params.allowscriptaccess = "sameDomain";
+				var attributes = {};
+				attributes.id = "plane_demo";
+				attributes.name = "plane_demo";
+				attributes.align = "middle";
+				swfobject.createCSS("html", "height:100%; background-color: #ffffff;");
+				swfobject.createCSS("body", "margin:0; padding:0; overflow:hidden; height:100%;");
+				swfobject.embedSWF(
+					"plane_demo.swf", "flash_content",
+					"1280", "728",
+					swfVersionStr, xiSwfUrlStr,
+					flashvars, params, attributes);
+			}
+			
+			function on_plane_selected(e)
+			{
+				if (e.target.value) {
+					show_plane(e.target.value)
+				}
+			}
+			
+			function load_data(url, callback)
+			{
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", url, true);
+				//xhr.responseType = "xml"; 
+				xhr.onload = function(e) {
+					callback(xhr.responseXML.documentElement)
+				}
+				xhr.send();
+			}
+			
+			function init(data)
+			{
+				var chooser = document.getElementById("chooser")
+				var planes = data.getElementsByTagName("plane")
+				var conf_cache = {}
+				
+				for (var i=0; i<planes.length; i++) {
+					var nodes = planes[i].childNodes
+					
+					for (var j=0; j<nodes.length; j++) {
+						var n = nodes[j].nodeName.toLowerCase()
+						
+						if (n == 'uid') {
+							var uid = nodes[j].firstChild.nodeValue
+						}
+						else if (n == 'model') {
+							var model = nodes[j].firstChild.nodeValue
+						}
+						else if (n == 'config') {
+							var conf = nodes[j].firstChild.nodeValue
+						}
+					}
+					
+					if (conf_cache[conf] == null) {
+						conf_cache[conf] = conf
+					}
+					else {
+						console.log("skip", conf)
+						//continue
+					}
+					
+					var itm = document.createElement("option")
+					itm.value = uid
+					itm.appendChild(document.createTextNode(uid + " --- " + model))
+					chooser.appendChild(itm)
+				}
+			}
+			
+			load_data('config.xml', init)
+
+		</script>
+	</head>
+	<body>
+		<div>
+			<span>Qatar Airways planes:</span>
+			<select id="chooser" onchange="on_plane_selected(event)">
+				<option value="">please select plane...</option>
+			</select>
+		</div>
+		
+		<div id="wrapper">
+			<div id="flash_content">
+			</div>
+		</div>
+		
+	</body>
+</html>

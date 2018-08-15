@@ -1,0 +1,587 @@
+@import "global";
+
+body {
+	overflow: hidden;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+audio {
+	display: none;
+}
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.void {
+	display: none !important;
+}
+
+.logo {
+	z-index: 1;
+	background-color: white;
+	background-repeat: no-repeat;
+}
+.button {
+	@include border-box;
+	display: block;
+	text-align: center;
+	font: 1em sans-serif;
+	cursor: default;
+
+	&.disabled {
+		cursor: default;
+		pointer-events: none !important;
+	}
+}
+.corner {
+	@include pos(0, 0);
+	z-index: 1;
+	font: 0.6em monospace;
+	text-shadow: 0 0 1px #ccc;
+	background: #222;
+	color: #eee;
+	pointer-events: none;
+	display: none;
+
+	.debug & {
+		display: block;
+	}
+}
+.debug .center:after {
+	@include pos(0, 50%);
+	content: "+";
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+}
+
+/************************************ VIEW ************************************/
+.view {
+	overflow: hidden;
+	background-color: #72797f;
+
+	.switch-deck {
+		color: white;
+		font: 0.9em Arial, sans-serif;
+		background-size: 100%;
+
+		&.selected {
+			color: #dadada;
+		}
+		.single-decker & {
+			display: none;
+		}
+	}
+	.plane {
+		@include fix(transform-origin, 0 0);
+
+		.deck {
+			@include rect(0, 0, 100%, 100%);
+			@include transition;
+			@include fix(backface-visibility, hidden);
+			opacity: 1;
+			z-index: 4;
+
+			.background {
+				@include rect(0, 0, 100%, 100%);
+				z-index: 0;
+			}
+			.seat {
+				z-index: 1;
+			}
+			.mask {
+				z-index: 101;
+			}
+			.selection {
+				z-index: 201;
+			}
+			canvas, img {
+				position: absolute;
+				pointer-events: none;
+
+				.draggable & {
+					pointer-events: all;
+				}
+				&:hover {
+					outline: 3px solid #3bf;
+				}
+			}
+			&.hidden {
+				pointer-events: none;
+				opacity: 0;
+
+				canvas, img {
+					pointer-events: none;
+				}
+			}
+			.selection {
+				@include rect(0, 0, 26px, 26px);
+				margin-left: -40px;
+				margin-top: -30px;
+				pointer-events: none;
+				text-align: center;
+
+				.wrap {
+					@include fix(transform, rotate(30deg) translate(18px, -6px) skew(15deg));
+					position: relative;
+
+					svg {
+						fill: rgba(64, 255, 64, 0.8);
+					}
+					.label {
+						position: absolute;
+						font: 10px/2 Arial;
+						width: 100%;
+					}
+				}
+			}
+		}
+		.fly {
+			position: absolute;
+			pointer-events: none;
+			z-index: 5;
+
+			.inner, .outer {
+				@include transition(all, 0.4s, ease-out);
+				@include border-box;
+				border-radius: 50%;
+			}
+			.inner {
+				@include core(30px, 30px);
+				opacity: 0.5;
+				background-color: white;
+			}
+			.outer {
+				@include core(60px, 60px);
+				opacity: 0.5;
+				border: 3px solid white;
+			}
+			&.animate {
+				.inner {
+					@include core(60px, 60px);
+					opacity: 0;
+				}
+				.outer {
+					@include core(30px, 30px);
+					opacity: 0;
+				}
+			}
+		}
+	}
+}
+
+/************************************ CONTROLS ********************************/
+.controls {
+	@include coords(auto, auto, 0, 0);
+	text-align: left;
+	font-family: Arial, sans-serif;
+	background-color: white;
+
+	.screen {
+		border-radius: 8px;
+		margin: 0 auto;
+		overflow: hidden;
+
+		.nav {
+			@include pos(50%, 50%);
+
+			.frame {
+				@include pos(0, 0);
+				overflow: hidden;
+				border: 1px solid black;
+				pointer-events: none;
+				z-index: 1;
+			}
+		}
+		.overlay {
+			@include rect(0, 0, 100%, 100%);
+			border-radius: 8px;
+			border: 1px solid #bfbfbf;
+			box-shadow: inset 0 0 10px 1px #aaa;
+			box-sizing: border-box;
+			pointer-events: none;
+		}
+		.board-num {
+			@include pos(0, 0);
+			z-index: 1;
+			font: 1em/1 Arial, sans-serif;
+			text-transform: uppercase;
+			white-space: nowrap;
+			pointer-events: none;
+
+			.name {
+				color: #6a6a6a;
+			}
+			.board {
+				color: #a5a5a5;
+			}
+		}
+		.airline-logo-small {
+			// background-size: 100%;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			pointer-events: none;
+			z-index: 1;
+		}
+	}
+	.board-info {
+		.route {
+			font: 1.1em Myriad Pro, sans-serif;
+			text-align: center;
+			white-space: nowrap;
+		}
+		.cred {
+			line-height: 18px;
+			font-size: 0.87em;
+
+			.number {
+				display: inline-block;
+				float: left;
+			}
+			.date {
+				display: inline-block;
+				float: right;
+			}
+			.field {
+				color: #6d6d6d;
+			}
+			.left .value {
+				font-size: 1.05em;
+			}
+		}
+	}
+	.confirm {
+		@include double(transition, filter 0.2s ease-in-out);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		background-position: 50% 50%;
+		font: 1.4em Arial, sans-serif;
+		color: white;
+		text-shadow: 0 -1px #555;
+		cursor: pointer;
+
+		.confirm-tick {
+			@include rect(0, 0, 100%, 100%);
+			background-repeat: no-repeat;
+			background-position: 50% 20%;
+			
+		}
+		&.disabled {
+			cursor: default;
+			pointer-events: none !important;
+			@include fix(filter, grayscale(1));
+		}
+	}
+	.airline-logo {
+		display: none;
+	}
+	.fill {
+		display: none;
+	}
+}
+
+/************************************ USER-BOX *******************************/
+.users-box {
+	border: 1px solid #606568;
+
+	.users {
+		font: 0.69em/1 Arial, sans-serif;
+		width: 100%;
+		border-spacing: 0 2px;
+
+		.user {
+			background-color: white;
+
+			&.selected {
+				background-color: #9fe6ff;
+
+				& > td {
+					border-top:    1px solid #94cadd;
+					border-bottom: 1px solid #94cadd;
+				}
+				.print {
+					@include gradient((top, #61d3fc, #2fb8e8));
+					border-top:    1px solid #3dbbe7;
+					border-bottom: 1px solid #3dbbe7;
+					color: white;
+				}
+				// .place {
+				// 	@include gradient((top, #61d3fc, #2fb8e8));
+				// 	border-top:    1px solid #3dbbe7;
+				// 	border-bottom: 1px solid #3dbbe7;
+				// 	color: white;
+				// }
+				.value {
+					color: #004892;
+				}
+				.ok svg {
+					fill: #0991ce;
+				}
+			}
+			&.placed {
+				.ok svg {
+					visibility: visible;
+				}
+			}
+			& > td {
+				border-top:    1px solid #e6e7e7;
+				border-bottom: 1px solid #e6e7e7;
+			}
+			&.infant {
+				background-color: #ddd;
+				color: #555;
+
+				.info table, .ok svg {
+					display: none;
+				}
+			}
+			&.disabled {
+				background-color: #b0b0b0;
+				height: auto !important;
+				pointer-events: none !important;
+
+				.info {
+					.name {
+						color: white;
+					}
+					.status {
+						display: none;
+					}
+				}
+				.reason {
+					color: white;
+					padding-bottom: 5px;
+				}
+				.print, .ok {
+					display: none;
+				}
+			}
+			.info {
+				.field {
+					padding-right: 3px;
+					color: #6d6d6d;
+				}
+				table {
+					margin: 0;
+				}
+				.name {
+					font-weight: bold;
+					text-transform: capitalize;
+				}
+				.message {
+					color: #c00;
+				}
+			}
+			.print {
+				@include gradient((top, #f3f4f4, #e4e2e2));
+				font-size: 0.8em;
+				text-align: center;
+				color: #362727;
+
+				.icon {
+					width: 22px;
+					height: 23px;
+					margin: 3px auto;
+				}
+			}
+			.place {
+				// @include gradient((top, #f3f4f4, #e4e2e2));
+				// font-size: 0.8em;
+				// text-align: center;
+				// color: #362727;
+
+				.value {
+					font: bold 1em/2 Arial, sans-serif;
+				}
+			}
+			.ok {
+				text-align: center;
+				vertical-align: top;
+
+				svg {
+					visibility: hidden;
+					fill: #3dce03;
+				}
+			}
+		}
+	}
+}
+
+/******************************** REGISTRATION ********************************/
+.popup {
+	@include rect(0, 0, 100%, 100%);
+	z-index: 20;
+
+	.register {
+		border: 2px solid #656565;
+		border-radius: 6px;
+		background-color: white;
+		text-align: center;
+		box-sizing: border-box;
+
+		.button-close {
+			background-size: 100%;
+		}
+		.content {
+			.header {
+				.result {
+					font: 1.6em Arial, sans-serif;
+					color: #0165a8;
+				}
+				.notice {
+					font: 1em Arial, sans-serif;
+					color: #898989;
+					white-space: pre-line;
+				}
+			}
+		}
+		.users-container {
+			position: relative;
+		}
+		.headers-wrap {
+			width: 100%;
+		}
+		.list {
+			width: 100%;
+			text-align: left;
+
+			&.users {
+				font: 1.12em Arial, sans-serif;
+				border: 0 solid #a2a7a8;
+				border-width: 0 1px;
+				border-spacing: 0 1px;
+				background-color: #d5d6d7;
+
+				.user {
+					&:nth-child(even) td {
+						background-color: #ececec;
+					}
+					td {
+						background-color: white;
+
+						&:nth-child(2) {
+							font-size: 1.25em;
+						}
+					}
+					.name {
+						text-transform: capitalize;
+					}
+				}
+				.error {
+					td {
+						font-size: 0.7em;
+						background-color: rgb(255, 149, 123);
+					}
+				}
+			}
+			&.headers {
+				@include gradient((top, #75a6c4 0%, #5e849b 100%));
+				font: bold 0.94em "Myriad Pro", sans-serif;
+				color: white;
+				border: 0 solid #a2a7a8;
+				border-width: 0 1px;
+				border-spacing: 0;
+
+				td {
+					border: 1px outset #b7ccd8;
+					vertical-align: bottom;
+				}
+			}
+		}
+		.actions {
+			width: 100%;
+
+			td:nth-child(1) {
+				text-align: left;
+			}
+			td:nth-child(3) {
+				text-align: right;
+			}
+			.action {
+				display: inline-block;
+				background-size: 100%;
+			}
+		}
+	}
+	.register-error {
+		background-color: white;
+
+		.message {
+			font: 1em Arial, sans-serif;
+			white-space: pre-line;
+			text-align: center;
+		}
+		.close {
+			@include border-box;
+			background-position: 50% 0;
+			background-repeat: no-repeat;
+			background-size: 100%;
+			text-align: center;
+			font: 0.9em Arial, sans-serif;
+			color: white;
+			text-shadow: 0 -1px rgba(31, 31, 31, 0.5);
+			cursor: default;
+		}
+	}
+}
+
+/********************************** DEMO MODE *********************************/
+.demo {
+	.board-info, .users-box, .confirm, .board-num .board, .back, .airline-logo-small {
+		display: none;
+	}
+	.fill {
+		display: block;
+	}
+	.airline-logo {
+		display: block;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: contain;
+
+		img {
+			@include core(0, 0);
+			background-size: 100%;
+		}
+	}
+}
+
+/********************************** LOADING ***********************************/
+.background {
+	@include coords(0, 0, 0, 0);
+	@include transition;
+	background-color: white;
+	z-index: 10;
+
+	&.half {
+		background-color: rgba(255, 255, 255, 0.5);
+
+		.caption {
+			display: none;
+		}
+	}
+	&.done {
+		opacity: 0;
+	}
+	.center {
+		.sandglass {
+			@include size(100%, 100%);
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			background-size: 100% auto;
+		}
+		.caption {
+			font: 0.87em/1.4 Arial, sans-serif;
+			padding-top: 1em;
+			text-align: center;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+.plane {
+	width: 960px;
+	margin: auto;
+}
+
+.reglink {
+	font: bold 18px Arial;
+	text-align: right;
+	width: 100px;
+	max-width: 100px;
+}

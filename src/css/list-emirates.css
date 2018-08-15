@@ -1,0 +1,98 @@
+body {
+	padding-top: 96px;
+}
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 126px;
+	background-color: white;
+	background-image: url(../img/logo/header-gradient.png);
+}
+.logo {
+	padding: 23px;
+}
+.airline-logo {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.plane {
+	/* margin-bottom: 20px; */
+}
+.filler {
+	height: 20px;
+	background-color: #949494;
+}
+
+.plane, .plane table {
+	padding:0;
+	border-collapse: collapse;
+	width: 100%;
+}
+.plane th {
+	padding-top: 10px;
+	padding-bottom: 0;
+	font: bold 14px Arial;
+	color: #cd0240;
+	height: 35px;
+	text-align: left;
+	padding-left: 10px;
+	border-top: 1px solid #a7033c;
+	border-bottom: 1px solid #a7033c;
+}
+.plane-image {
+	width: 195px;
+}
+.plane-image img {
+	width: 180px;
+	height: 150px;
+}
+.model-list {
+	padding-top: 0;
+	padding-bottom: 2px;
+	background-color: #949494;
+}
+.model-list table {
+	border-bottom: 2px solid #a7033c
+}
+.model-list td {
+	padding: 3px 10px;
+}
+.model-list a {
+	color: white;
+}
+.model-list, .plane-image {
+	padding-top: 0;
+	vertical-align: top;
+}
+.model {
+	border-width: 3px;
+	border-style: solid;
+	border-top: none;
+	border-bottom: none;
+}
+.capacity {
+	font: bold 18px Arial;
+}
+.model td {
+	height: 30px;
+	color: #f3f3f3;
+}
+.model:nth-child(odd) {
+	background-color: #cd0440;
+}
+.model:nth-child(even) {
+	background-color: #ff0056;
+}
+
+.model-name {
+	font: bold 24px Arial;
+	width: 300px;
+}
+.model.orange  { border-color: #f58220; }
+.model.gray    { border-color: #919ea3; }
+.model.blue    { border-color: #007bad; }
+.model.skyblue { border-color: #43c9ff; }
+.model.yellow  { border-color: #ffbd5f; }

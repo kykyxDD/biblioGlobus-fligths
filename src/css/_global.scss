@@ -1,0 +1,77 @@
+/************************************ MIXINS **********************************/
+@mixin gradient($description) {
+	background-image: -webkit-linear-gradient($description);
+	background-image:    -moz-linear-gradient($description);
+	background-image:     -ms-linear-gradient($description);
+	background-image:      -o-linear-gradient($description);
+	background-image:         linear-gradient($description);
+}
+@mixin fix($property, $value) {
+	-webkit-#{$property}: $value;
+	   -moz-#{$property}: $value;
+	    -ms-#{$property}: $value;
+	     -o-#{$property}: $value;
+	        #{$property}: $value;
+}
+@mixin double($property, $value) {
+	-webkit-#{$property}: -webkit-#{$value};
+	   -moz-#{$property}:    -moz-#{$value};
+	    -ms-#{$property}:     -ms-#{$value};
+	     -o-#{$property}:      -o-#{$value};
+	        #{$property}:         #{$value};
+}
+@mixin transition($property: all, $duration: 0.5s, $timing-function: ease-in-out, $delay: 0s) {
+	@include fix(transition, $property $duration $timing-function $delay);
+}
+@mixin pos($x: 0, $y: 0, $type: absolute) {
+	position: $type;
+	left: $x;
+	top: $y;
+}
+@mixin pos2($x: 0, $y: 0, $type: absolute) {
+	position: $type;
+	right: $x;
+	bottom: $y;
+}
+@mixin coords($x1: 0, $y1: 0, $x2: 0, $y2: 0, $type: absolute) {
+	@include pos($x1, $y1, $type);
+	right:  $x2;
+	bottom: $y2;
+}
+@mixin size($x, $y) {
+	width: $x;
+	height: $y;
+}
+
+
+@mixin rect($x: 0, $y: 0, $width: 0, $height: 0, $type: absolute) {
+	@include pos($x, $y, $type);
+	@include size($width, $height);
+}
+@mixin core($width, $height) {
+	@include rect(50%, 50%, $width, $height);
+	margin-left: - $width / 2;
+	margin-top: - $height / 2;
+}
+@mixin font($name, $filename) {
+	$file: $font-path + $filename;
+	font-family: $name;
+	src: url($file + '.eot');
+	src: url($file + '.eot?#iefix') format('embedded-opentype'),
+	url($file + '.woff') format('woff'),
+	url($file + '.ttf') format('truetype'),
+	url($file + '.svg#' + $filename) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin border-box() {
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} { @content }
+	   @-moz-keyframes #{$name} { @content }
+	    @-ms-keyframes #{$name} { @content }
+	     @-o-keyframes #{$name} { @content }
+	        @keyframes #{$name} { @content }
+}
