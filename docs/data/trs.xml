@@ -62,6 +62,7 @@
             <CURSEAT></CURSEAT>
             <SC>Y</SC>
             <BOARDINGPASS></BOARDINGPASS>
+            <UPPERDECK>true</UPPERDECK>
         </PASSENGER>
         <PASSENGER>
             <ID>102318070810692100</ID>

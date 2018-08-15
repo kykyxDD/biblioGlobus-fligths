@@ -351,6 +351,10 @@ function load_session() {
 	}
 
 }
+
+function getPointerForUpperDeck(){
+	return model.struct.plane.point1_deck2 ? model.struct.plane.point1_deck2 : model.struct.plane.point1
+}
 function setup_viewmodel() {
 	document.title = model.boardinfo.name
 
@@ -372,7 +376,8 @@ function setup_viewmodel() {
 				setTimeout(add_class, 500, decks[0].elem, 'void')
 			} else {
 				// navigation.move(model.upper_pos, true)
-				var point = model.struct.plane.point1
+				var point = getPointerForUpperDeck()
+
 				frames.view.move(point[0], point[1], true)
 			}
 		} else {
@@ -420,6 +425,8 @@ function setup_viewmodel() {
 					upper_deck_visible(user.seat.deck > 1)
 				}
 				frames.view.move(user.seat.x, user.seat.y, true)
+			} else if(user.upper_deck){
+				upper_deck_visible(true)
 			}
 
 			return true

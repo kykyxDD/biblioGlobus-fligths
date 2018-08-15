@@ -103,7 +103,8 @@ var self = window.model = {
 				fclass    : self.locale['flightClass'+ data['SC']] || 'n/a',
 
 				curseat   : '',
-				face      : {}
+				face      : {},
+				upper_deck : data['UPPERDECK'] ? data['UPPERDECK']: false
 			}
 
 			var seat = data['CURSEAT'] ? data['CURSEAT'].toUpperCase() : ''
