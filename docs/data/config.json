@@ -1,0 +1,668 @@
+{
+	"locale_url": "locale.xml",
+
+	"planes": [
+		{ "airline": "russia", "uid": "EIXLC", "model": "Boeing 747-400", "config": "json/EIXLH.js" },
+		{ "airline": "russia", "uid": "EIXLD", "model": "Boeing 747-400", "config": "json/EIXLH.js" },
+		{ "airline": "russia", "uid": "EIXLE", "model": "Boeing 747-400", "config": "json/EIXLH.js" },
+		{ "airline": "russia", "uid": "EIXLH", "model": "Boeing 747-400", "config": "json/EIXLH.js" },		
+		{ "airline": "russia", "uid": "EIXLJ", "model": "Boeing 747-400", "config": "json/EIXLH.js" },	
+		{ "airline": "russia", "uid": "EIXLF", "model": "Boeing 747-400", "config": "json/EIXLF.js" },
+		{ "airline": "russia", "uid": "EIXLG", "model": "Boeing 747-400", "config": "json/EIXLF.js" },
+		{ "airline": "russia", "uid": "EIXLI", "model": "Boeing 747-400", "config": "json/EIXLF.js" },		
+
+		{ "airline": "russia", "uid": "VQBPX", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VQBSR", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VQBSS", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VQBUF", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VQBWJ", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VPBGQ", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VPBGR", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VPBOA", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VPBOB", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VPBOD", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VPBOH", "model": "Boeing 737-800", "config": "json/VQBPX.js" },
+		{ "airline": "russia", "uid": "VQBUE", "model": "Boeing 737-800", "config": "json/VQBUE.js" },
+
+		{ "airline": "redwings", "uid": "VPBRS", "model": "Airbus 321", "config": "json/VPBRS.js" },
+		{ "airline": "redwings", "uid": "VPBRM", "model": "Airbus 321", "config": "json/VPBRM.js" },
+		{ "airline": "redwings", "uid": "VPBWS", "model": "Airbus 321", "config": "json/VPBWS.js" },
+		{ "airline": "redwings", "uid": "VPBRW", "model": "Airbus 321", "config": "json/VPBRW.js" },
+		{ "airline": "redwings", "uid": "VPBRB", "model": "Airbus 321", "config": "json/VPBRB.js" }
+
+	],
+	"seat_types": {
+		"qatar_econom": {
+			"name": "Экономический класс",
+			"img": {
+				"ref": "qr_econom"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"qatar_econom_space": {
+			"name": "Кресло повышенной комфортности",
+			"img": {
+				"ref": "qr_econom_space"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"qatar_buisness_a": {
+			"img": {
+				"ref": "qr_premium1"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "prem1_w1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "prem1_w2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "prem1_m1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "prem1_m2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "prem1_w_b" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "prem1_m_b" }
+			]
+		},
+		"qatar_buisness_b": {
+			"img": {
+				"ref": "qr_premium2"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "prem2_w1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "prem2_w2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "prem2_m1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "prem2_m2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "prem2_w_b" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "prem2_m_b" }
+			]
+		},
+		"qatar_first_class": {
+			"img": {
+				"ref": "qr_kreslo_imp"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl_1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl_2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_m_1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_m_2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp_baby2" }
+			]
+		},
+		"transaero_econom": {
+			"name": "Экономический класс",
+			"img": {
+				"ref": "kreslo"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"transaero_econom_space": {
+			"name": "Место SPACE+",
+			"img": {
+				"ref": "kresloBlue"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"transaero_econom_front": {
+			"name": "Место FRONT ROWS",
+			"img": {
+				"ref": "kresloFront"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"transaero_econom2": {
+			"name": "Экономический класс",
+			"img": {
+				"ref": "k_y1_2"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"transaero_econom2_space": {
+			"name": "Место SPACE+",
+			"img": {
+				"ref": "k_y1_2_space"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"transaero_buisness": {
+			"name" : "Бизнес-класс",
+			"img": {
+				"ref": "b1_kr"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "b_6" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "b_7" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "b_8" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "b_9" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "b_10" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "b_11" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "b_12" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "b_1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "b_2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "b_3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "b_4" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "b_13" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "b_14" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "buisness_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "buisness_baby2" }
+			]
+		},
+		"transaero_buisness2": {
+			"img": {
+				"ref": "k_J_1"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k2_1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k2_2" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k2_5" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k2_7" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k2_3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k2_6" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k2_4" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "buisness_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "buisness_baby2" }
+			]
+		},
+		"transaero_first_class_777a": {
+			"img": {
+				"ref": "imperial"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "im_girl_1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "im_man_1" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "im_girl_1_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "im_man_1_baby" }
+			]
+		},
+		"transaero_first_class_777b": {
+			"img": {
+				"ref": "imperial2"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "im_girl_2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "im_man_2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "im_girl_2_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "im_man_2_baby" }
+			]
+		},
+		"transaero_first_class_777c": {
+			"img": {
+				"ref": "imperial"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "im_girl_3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "im_man_3" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "im_girl_3_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "im_man_3_baby" }
+			]
+		},
+		"transaero_first_class_777d": {
+			"img": {
+				"ref": "imperial2"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "im_girl_4" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "im_man_4" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "im_girl_3_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "im_man_3_baby" }
+			]
+		},
+		"transaero_first_class_777_2a": {
+			"img": {
+				"ref": "imperial_2a"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k2_girl2" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k2_girl1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k2_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k2_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp2_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp2_baby2" }
+			]
+		},
+		"transaero_first_class_777_2b": {
+			"img": {
+				"ref": "imperial_1a"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl2" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp_baby2" }
+			]
+		},
+		"transaero_first_class_3a": {
+			"img": {
+				"ref": "imperial_1"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_1_woman1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_1_woman2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_1_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_1_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp_baby2" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp_baby" }
+			]
+		},
+		"transaero_first_class_3b": {
+			"img": {
+				"ref": "imperial_2"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_2_woman1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_2_woman2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_2_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_2_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp2_baby2" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp2_baby" }
+			]
+		},
+		"transaero_first_class_3c": {
+			"img": {
+				"ref": "imperial_3"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_3_woman1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_3_woman2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_3_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_3_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp3_baby2" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp3_baby" }
+			]
+		},
+		"transaero_first_class_3d": {
+			"img": {
+				"ref": "imperial_4"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_4_woman1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_4_woman2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_4_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_4_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp4_baby2" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp4_baby" }
+			]
+		},
+		"transaero_first_class_4": {
+			"img": {
+				"ref": "k1"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl_1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl_2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_m_2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_m_1" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp_baby2" }
+			]
+		},
+		"emirates_econom": {
+			"img": {
+				"ref": "ek_econom"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "4" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "5" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "6" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "8" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "10" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "12" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "15" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "16" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "18" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "20" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "21" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "23" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "24" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "25" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "26" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "22" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "1" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "11" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "13" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "14" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "17" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "19" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "27" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "9" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "28" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "30" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "econom_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "econom_baby2" }
+			]
+		},
+		"emirates_buisness": {
+			"img": {
+				"ref": "ek_b1_kr"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "k2_1" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "k2_2" },
+				{ "child": false, "sex": "f", "age": [13, 999], "ref": "k2_5" },
+				{ "child": false, "sex": "f", "age": [ 0,  12], "ref": "k2_7" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "k2_3" },
+				{ "child": false, "sex": "m", "age": [13, 999], "ref": "k2_6" },
+				{ "child": false, "sex": "m", "age": [ 0,  12], "ref": "k2_4" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "buisness_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "buisness_baby2" }
+			]
+		},
+		"emirates_buisness_2a": {
+			"img": {
+				"ref": "premium_z1"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "z1_w1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "z1_w2" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "z1_w3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "z1_m1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "z1_m2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "z1_m3" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "z1_w2_boy" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "z1_m_boy" }
+			]
+		},
+		"emirates_buisness_2b": {
+			"img": {
+				"ref": "premium_z2"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "z2_w1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "z2_w2" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "z2_w3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "z2_m1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "z2_m2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "z2_m3" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "z2_w2_boy" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "z2_m_boy" }
+			]
+		},
+		"emirates_first_class_3a": {
+			"img": {
+				"ref": "m_premium2"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "2_w1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "2_w2" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "2_w3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "2_m3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "2_m2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "2_m1" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "1_w_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "1_m_baby" }
+			]
+		},
+		"emirates_first_class_3b": {
+			"img": {
+				"ref": "m_premium1"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "1_w1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "2_w2" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "2_w3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "1_m1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "1_m2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "1_m3" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "1_m4" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "2_w_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "2_m_baby" }
+			]
+		},
+		"emirates_first_class": {
+			"img": {
+				"ref": "ek_k1"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl_1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "k1_girl_2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_m_2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "k1_m_1" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp_baby" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp_baby2" }
+			]
+		},
+		"emirates_first_class_2a": {
+			"img": {
+				"ref": "imperial_3"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_3_woman1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_3_woman2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_3_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_3_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp3_baby2" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp3_baby" }
+			]
+		},
+		"emirates_first_class_2b": {
+			"img": {
+				"ref": "imperial_4"
+			},
+			"people": [
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_4_woman1" },
+				{ "child": false, "sex": "f", "age": [ 0, 999], "ref": "imperial_4_woman2" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_4_man1" },
+				{ "child": false, "sex": "m", "age": [ 0, 999], "ref": "imperial_4_man2" },
+				{ "child": true,  "sex": "f", "age": [ 0, 999], "ref": "imp4_baby2" },
+				{ "child": true,  "sex": "m", "age": [ 0, 999], "ref": "imp4_baby" }
+			]
+		}
+	}
+}

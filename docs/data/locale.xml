@@ -1,0 +1,54 @@
+<locale>
+	
+	<error>
+		<code>0</code>
+		<message><![CDATA[Произошла неизвестная ошибка!
+Пожалуйста, попробуйте еще раз.]]></message>
+</error>
+
+	<error>
+		<code>1</code>
+		<message><![CDATA[Произошла ошибка!
+Сервер Трансаэро не отвечает по неизвестной причине.
+Пожалуйста, попробуйте обновить страницу через несколько минут...]]></message>
+	</error>
+
+	<error>
+		<code>2</code>
+		<message><![CDATA[Извините, но регистрация на рейс уже закончилась.]]></message>
+	</error>
+	
+	<error>
+		<code>3</code>
+		<message><![CDATA[Туристы вылетают разными рейсами. Совместная регистрация невозможна.]]></message>
+	</error>
+	
+	<error>
+		<code>4</code>
+		<message><![CDATA[Извините, но регистрация на рейс уже закончилась.]]></message>
+	</error>
+	
+	<error>
+		<code>5</code>
+		<message><![CDATA[В настоящим момент выбор мест невозможен. 
+Происходит первичная регистрация пассажиров на рейсе.]]></message>               
+	</error>	
+	
+	<error>
+		<code>6</code>
+		<message><![CDATA[Не все пассажиры добавлены авиакомпанией в списки регистрации.
+Повторите попытку через 4 часа.]]></message>
+	</error>
+
+	<resultsPopupHeader>Вы успешно зарегистрировались на рейс __val__</resultsPopupHeader>
+	<resultsPopupText1>Не забудьте распечатать посадочные талоны, они вам потребуются в аэропорту.
+Спасибо что воспользовались услугами нашей компании.</resultsPopupText1>
+	<registrationErrorText1>Ошибка: вы не можете занять место __val__. Нажмите "Изменить" и выберете другое.</registrationErrorText1>
+	<registrationErrorText2>Место __val__ было заменено на __val__.</registrationErrorText2>
+	<registrationErrorText3>За этим пассажиром закреплено более одного младенца. Это запрещено правилами авиакомпании. Пожалуйста, обратитесь за консультацей к туроператору.</registrationErrorText3>
+	
+	<flightClassY>Экономический</flightClassY>
+	<flightClassF>Первый</flightClassF>
+	<flightClassJ>Бизнес</flightClassJ>
+	<flightClassL>Экономический</flightClassL>
+</locale>
