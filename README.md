@@ -1,4 +1,4 @@
-https://kykyxdd.github.io/biblioGlobus-fligths/
+https://kykyxdd.github.io/biblioGlobus-fligths/ei_index.html?tourid=EIXLI
 
 
 Сборка проекта : gulp
