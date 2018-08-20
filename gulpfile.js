@@ -17,7 +17,7 @@ var cfg = {
     
     dev: {
         
-        target: './docs',
+        target: './dist',
         
         assets: [
             './src/**/*.*',
