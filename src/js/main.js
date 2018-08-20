@@ -436,11 +436,37 @@ function setup_viewmodel() {
 		}
 	}
 
+	view.svgImgInfant = ko.computed(function(){
+		return '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 79.531 79.531" style="enable-background:new 0 0 79.531 79.531;" xml:space="preserve">'+
+		'<g>'+
+		'<path d="M51.333,50.373c0,0,7.602,7.611,7.622,7.622c2.424,2.443,1.797,6.736-0.502,9.072l-10.604,11.05   c-4.096,4.085-9.569-1.585-5.593-5.54l6.727-6.732l-6.586-6.534L51.333,50.373L51.333,50.373z M27.69,50.373L27.69,50.373   c0,0-7.591,7.611-7.591,7.622c-2.444,2.443-1.817,6.736,0.456,9.072l10.651,11.05c4.08,4.085,9.554-1.585,5.598-5.54l-6.716-6.732   l6.535-6.534L27.69,50.373 M39.776,22.059c6.089,0,11.029-4.927,11.029-11.045C50.805,4.932,45.866,0,39.776,0   c-6.095,0-11.045,4.932-11.045,11.014C28.731,17.127,33.676,22.059,39.776,22.059z M51.727,45.956l0.161-7.524l9.17,8.554   c0.746,0.71,1.704,1.046,2.662,1.046c1.035,0,2.087-0.414,2.853-1.232c1.471-1.584,1.388-4.049-0.187-5.52   c0,0-10.511-11.423-12.023-12.754c-2.796-2.48-6.897-3.886-13.551-3.886h-2.087c-6.659,0-10.755,1.406-13.562,3.881   C23.657,29.852,13.145,41.28,13.145,41.28c-1.569,1.47-1.662,3.936-0.187,5.52c0.767,0.818,1.812,1.232,2.854,1.232   c0.958,0,1.916-0.336,2.667-1.046l9.166-8.549l0.16,7.523h23.923V45.956z" fill="#FFFFFF"/>'+
+		'</g>'+
+		'</svg>'
+	}, view)
+
+	view.imgInfant = ko.computed(function(){
+		var data = view.svgImgInfant();
+		data = encodeURIComponent(data);
+		var img = new Image();
+		img.src = "data:image/svg+xml," + data;
+		return img;
+	}, view)
+
 	view.airline = ko.observable(model.airline)
 	view.classes = ko.observableArray([view.orient, view.decker, view.airline])
 	if(debug.enabled) view.classes.push(function() { return 'debug'})
 	if(C.DEMO       ) view.classes.push(function() { return 'demo' })
 
+	view.visInfoSeatInf = ko.computed(function(){
+		var search = false
+		model.struct.seats.forEach(function(seat){
+			if(!search && seat.forInfant) {
+				search = true
+			}
+		})
+
+		return search
+	}, view)
 
 	view.list_category = ko.computed(function() {
 		var list_name_category = [];
@@ -989,22 +1015,22 @@ Seat.prototype = {
 				&& dy > 0 && dy < border[3]
 		}, this)
 	},
+	
 	updateState: function() {
-		
 		this.X = this.x - this.group.size.left - this.size[0]
 		this.Y = this.y - this.group.size.top
-		this.match_service_class = view.user() && this.sc === view.user().sc
-		this.match_status_inf = this.checkStatusUserForInfant()
-
+		this.match_service_class = (view.user() && this.sc === view.user().sc);
+		this.match_status_inf = this.checkStatusUserForInfant();
 	},
-	
-	checkStatusUserForInfant() {
-		var user = view.user()
+
+	checkStatusUserForInfant: function() {
+		var user = view.user();
 		return user && (
 			(this.forInfant && user.child && user.child.infant) || 
-			(!this.forInfant && (!user.child || (user.child && !user.child.infant)))
+			(!this.forInfant && (!user.child || (user.child && !user.child.infant) ) )
 		)
 	},
+
 	draw: function() {
 		this.updateState()
 
@@ -1034,19 +1060,30 @@ Seat.prototype = {
 	},
 	drawLabel: function(text) {
 		var ctx  = this.group.context,
-			size = this.labelSize
-
+			size = this.labelSize,
+			inf = this.forInfant
+		
+		var y = inf ? -size*0.75 : 0
+		var h = size + Math.abs(y)
+	
 		ctx.save()
 		ctx.fillStyle =
 			debug.enabled && this.over ? 'orangered' :
 			debug.enabled && this.low  ? 'crimson'   :
 			this === model.taken       ? '#19cf00'   :
-			                             'rgba(0,0,0,0.5)'
+																	 'rgba(0,0,0,0.5)'
+
 		ctx.translate(
 			this.X + this.sprite.offset.label[0],
 			this.Y + this.sprite.offset.label[1])
 		ctx.transform.apply(ctx, this.labelTransform)
-		ctx.fillRect(0, 0, size, size)
+		ctx.fillRect(0, y, size, h)
+
+		if(inf) {
+			var img = view.imgInfant()
+			ctx.drawImage(img, (size - img.width)/2 , (y - img.height)/2 + 3)
+		}
+
 		ctx.strokeText(text, size / 2, size / 2)
 		ctx.restore()
 	},

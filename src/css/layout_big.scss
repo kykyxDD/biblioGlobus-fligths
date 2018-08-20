@@ -82,6 +82,7 @@ body {
 				font: 10px/2 Arial;
 				width: 100%;
 				color: initial;
+			
 			}
 		}
 		.box_wrap {
@@ -96,6 +97,13 @@ body {
 				width: 100%;
 				top: 50%;
 				margin-top: -10px;
+				
+			}
+			&.inf {
+				height: 20px;
+				.label {
+					margin-top: -5px;
+				}
 			}
 		}
 		.name_seat {

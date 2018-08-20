@@ -227,13 +227,25 @@
 								<td class="name_seat">Выбранные места</td>
 							</tr>
 							<tr class="">
-									<td class="icon_seat">
-										<div class="box_wrap">
-											<div class="label">48E</div>
+								<td class="icon_seat">
+									<div class="box_wrap">
+										<div class="label">48E</div>
+									</div>
+								</td>
+								<td class="name_seat">Доступные места</td>
+							</tr>
+							<tr class="" data-bind="if: visInfoSeatInf">
+								<td class="icon_seat">
+									<div class="box_wrap inf">
+										<div class="label" data-bind="html: svgImgInfant">
 										</div>
-									</td>
-									<td class="name_seat">Доступные места</td>
-								</tr>
+									</div>
+									<div class="box_wrap">
+										<div class="label">48E</div>
+									</div>
+								</td>
+								<td class="name_seat">Места для пассажира с младенцем</td>
+							</tr>
 						</tbody>
 					</table>
 					<table class="popop_help__listCategory" >
