@@ -200,7 +200,7 @@
         <SEAT no="21D" type="*" status="*" sc="Y" />
         <SEAT no="21E" type="*" status="*" sc="Y" />
         <SEAT no="21F" type="*" status="*" sc="Y" />
-        <SEAT no="22A" type="*" status="*" sc="Y" />
+        <SEAT no="22A" type="*" status="I" sc="Y" />
         <SEAT no="22B" type="*" status="*" sc="Y" />
         <SEAT no="22C" type="I" status="*" sc="Y" />
         <SEAT no="22D" type="*" status="*" sc="Y" />

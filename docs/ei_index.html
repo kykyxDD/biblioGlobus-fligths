@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script>
+			var get_params = {}
+			if(~location.href.indexOf('?')) {
+				var pairs = location.href.split('#')[0].split('?')[1].split('&')
+				for(var i = 0; i < pairs.length; i++) {
+					var pair = pairs[i].split('=')
+					get_params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1])
+				}
+			}
+
+			var BASE_URL = ""
+			var CONFIG_URL = BASE_URL + "data/config.xml"
+			var LOCALE_URL = BASE_URL + "data/locale.xml"
+			var NO_SHOW_TICKETS = "true"
+			var SEATS_INFO_URL = "data/trs.xml"
+			var SEAT_REQUEST = "data/trs.xml"
+			var REGISTRATION_NUMBER = get_params.tourid
+
+			var first = document.getElementsByTagName('script')[0]
+
+			function add_script(src) {
+				var elem   = document.createElement('script')
+				elem.type  = 'text/javascript'
+				elem.src   = BASE_URL + src
+				first.parentNode.insertBefore(elem, first)
+			}
+			function add_style(obj) {
+				var elem  = document.createElement('link')
+				elem.rel  = 'stylesheet'
+				elem.type = 'text/css'
+				for(var name in obj) elem[name] = obj[name]
+				elem.href = BASE_URL + obj.href
+				first.parentNode.insertBefore(elem, first)
+			}
+			function all(arr, callback) {
+				for(var i = 0; i < arr.length; i++) callback(arr[i])
+			}
+
+			var styles = {
+				mobile: [
+					{ href: 'css/common.css' },
+					{ href: 'css/layout_small.css', media: 'screen and (max-width: 600px)' },
+					{ href: 'css/layout_big.css',   media: 'screen and (min-width: 601px)' }
+				],
+				flash: []
+			}
+
+			var scripts = {
+				mobile: [
+					'js/const.js',
+					'js/common.js'
+				],
+				flash: [
+					'js/swfobject.js',
+					'js/flash_main.js'
+				]
+			}
+
+			try { var FLASH = new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('$version') } catch(e) {}
+			try { var FLASH = navigator.plugins['Shockwave Flash'].description && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin } catch(e) {}
+
+			// all(FLASH ? scripts.flash : scripts.mobile, add_script)
+			// all(FLASH ? styles.flash  : styles.mobile , add_style)
+			all(scripts.mobile, add_script)
+			all(styles.mobile, add_style)
+		</script>
+	</head>
+	<body style="display: none" data-bind="attr: { class: root_class }">
+		<script type="text/html" id="user-select">
+			<tr class="user" data-bind="click: $root.selectUser, css: { selected: selected, placed: curseat, infant: parent, disabled: disabled }">
+				<!-- ko ifnot: parent || disabled -->
+				<td class="info">
+					<div class="name">
+						<span data-bind="text: name" class="value"></span>
+					</div>
+					<table class="status" cellspacing=0 cellpadding=0>
+						<tbody>
+							<tr class="place">
+								<td class="field">место: </td>
+								<td data-bind="text: curseat" class="value"></td>
+							</tr>
+							<tr class="class">
+								<td class="field">класс: </td>
+								<td data-bind="text: fclass" class="value"></td>
+							</tr>
+							<!-- ko if: message -->
+							<tr class="message">
+								<td data-bind="text: message"></td>
+							</tr>
+							<!-- /ko -->
+						</tbody>
+					</table>
+				</td>
+				<td class="print">
+					<a target="_blank" data-bind="attr: { href: ticket }, css: { void: !ticket }">
+						<div class="icon" data-bind="css: { 'static-print-a': selected, 'static-print-i': !selected() }"></div>
+						<span class="label">Посадочный талон</span>
+					</a>
+				</td>
+				<td class="class">
+					<div class="label">класс: </div>
+					<div data-bind="text: fclass" class="value"></div>
+				</td>
+				<td class="place">
+					<div class="label">место: </div>
+					<div data-bind="text: curseat" class="value"></div>
+				</td>
+				<td class="ok">
+					<svg viewBox="0 0 18 18">
+					<path d="M18,0l0,7l-11,11l-7,-7l0,-7l7,7l11,-11z" />
+					</svg>
+				</td>
+				<!-- /ko -->
+				<!-- ko if: parent -->
+				<td colspan="3" class="info">
+					<div class="name">
+						<span data-bind="text: name" class="value"></span>
+						<span style="text-transform: lowercase;"> вместе с </span>
+						<span data-bind="text: parent.name" class="value"></span>
+					</div>
+				</td>
+				<!-- /ko -->
+				<!-- ko if: disabled -->
+				<td colspan="3" class="info">
+					<div class="name">
+						<span data-bind="text: name" class="value"></span>
+					</div>
+					<div data-bind="text: disabled" class="reason"></div>
+				</td>
+				<!-- /ko -->
+			</tr>
+		</script>
+		<script type="text/html" id="register-confirmation">
+			<div class="register">
+				<div data-bind="event: { tap: complete }" class="button-close static-button-close"></div>
+				<div class="content">
+					<div class="header">
+						<div class="result" data-bind="text: result_header"></div>
+						<div class="notice" data-bind="text: result_text"></div>
+					</div>
+					<div class="headers-wrap">
+						<table class="list headers">
+							<tbody>
+								<tr>
+									<td></td>
+									<td>Место</td>
+									<td>Посадочный талон</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="confirm-users" class="users-container static-background-gray">
+						<table class="list users">
+							<tbody data-bind="foreach: users">
+								<tr class="user">
+									<td data-bind="text: name" class="name"></td>
+									<td data-bind="text: curseat" class="seat"></td>
+									<td class="print">
+										<a target="_blank" data-bind="attr: { href: ticket }, visible: ticket">
+											<div class="icon static-print-i"></div>
+											<span class="label">Распечатать</span>
+										</a>
+									</td>
+								</tr>
+								<!-- ko if: message || error -->
+								<tr class="error">
+									<td colspan="3" data-bind="text: message || error"></td>
+								</tr>
+								<!-- /ko -->
+							</tbody>
+						</table>
+					</div>
+					<div class="actions-wrap">
+						<table class="actions">
+							<tbody>
+								<tr>
+									<td>
+										<div class="action button-change static-button-change" data-bind="event: { tap: complete }"></div>
+									</td>
+									<td>
+										<a target="_blank"gclass="action button-print-all static-button-print-all" data-bind="attr: { href: group_ticket }, visible: group_ticket"></a>
+									</td>
+									<td>
+										<div class="action button-complete static-button-complete" data-bind="event: { tap: complete }"></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</script>
+		<div data-bind="text: debug.pos_view" class="corner view-info"></div>
+		<div class="logo static-biblioglobus_logo"></div>
+		<div id="plane-scroll" class="view center">
+			<div class="plane">
+				<div class="fly">
+					<div class="inner"></div>
+					<div class="outer"></div>
+				</div>
+			</div>
+			<div data-bind="event: { tap: hide_upper_deck }, css: lower_deck_class" class="button switch-deck one">Нижняя палуба</div>
+			<div data-bind="event: { tap: show_upper_deck }, css: upper_deck_class" class="button switch-deck two">Верхняя палуба</div>
+
+			<div class="popup_help" data-bind="css: { show: show_popup_helper} " >
+					<div class="popup_help__close" data-bind="event: {click: click_icon_helper }"></div>
+					<div class="popup_help__info">
+						<table class="popop_help__listSeats">
+							<tbody>
+								<tr class="">
+									<td class='icon_seat'>
+										<div class="box_wrap_selection">
+											<div class="wrap">
+												<div class="label">48E</div>
+												<svg viewBox="0 0 26 26">
+													<path d="M0,0 L26,0 L26,18 L13,26 L0,18 L0,0" />
+												</svg>
+											</div>
+										</div>
+									</td>
+									<td class="name_seat">Выбранные места</td>
+								</tr>
+								<tr class="">
+										<td class="icon_seat">
+											<div class="box_wrap">
+												<div class="label">48E</div>
+											</div>
+										</td>
+										<td class="name_seat">Доступные места</td>
+									</tr>
+							</tbody>
+						</table>
+						<table class="popop_help__listCategory" >
+							<tbody data-bind="foreach: list_category">
+								<tr class="item_category">
+									<td class="img" data-bind="style: {backgroundImage: 'url(' + imageBase64() + ')'}"></td>
+									<td class="name" data-bind="text: name"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="icon-helper" data-bind="event: {click: click_icon_helper }">Помощь</div>
+		</div>
+		<div class="controls">
+			<div class="screen">
+				<div class="board-num">
+					<div data-bind="text: board.name"     class="name" ></div>
+					<div data-bind="text: board.boardnum" class="board"></div>
+				</div>
+				<div class="airline-logo-small"></div>
+				<div class="nav">
+					<div class="frame center"></div>
+				</div>
+				<div class="overlay"></div>
+				<div data-bind="text: debug.pos_nav" class="corner nav-info"></div>
+			</div>
+			<div class="board-info-table">
+				<table>
+					<tbody>
+						<tr>
+							<td data-bind="text: board.boardnum" rowspan="2"></td>
+							<td data-bind="text: formatAirport(board.from)"></td>
+							<td data-bind="text: formatAirport(board.to)"></td>
+						</tr>
+						<tr>
+							<td data-bind="text: board.time"></td>
+							<td data-bind="text: board.date"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="board-info">
+				<div class="route">
+					<span data-bind="text: formatAirport(board.from)" class="from"></span>
+					<span> ― </span>
+					<span data-bind="text: formatAirport(board.to)" class="to"></span>
+				</div>
+				<div class="cred clearfix">
+					<div class="number">
+						<span class="field">Рейс №: </span>
+						<span data-bind="text: board.num" class="value big"></span>
+					</div>
+					<div class="date">
+						<span class="field">Вылет: </span>
+						<span data-bind="text: board.time" class="value"></span>,
+						<span data-bind="text: board.date" class="value"></span>
+					</div>
+				</div>
+			</div>
+			<div id="users-scroll" class="users-box static-user-bg">
+				<table class="users" cellpadding=0>
+					<tbody data-bind="template: { name: 'user-select', foreach: users }"></tbody>
+				</table>
+			</div>
+			<div class="airline-logo"></div>
+			<div data-bind="event: { tap: submit }, css: { disabled: !placedUsers().length }" class="button confirm static-confirm">
+				<div class="confirm-tick static-tick"></div>
+				<div data-bind="text: confirm_caption" class="confirm-caption"></div>
+			</div>
+			<div data-bind="event: { tap: show_passengers }, css: { void:  passengers_visible() }" class="button confirm fill static-confirm">
+				<div class="confirm-tick static-tick"></div>
+				<div class="confirm-caption">Заполнить места</div>
+			</div>
+			<div data-bind="event: { tap: hide_passengers }, css: { void: !passengers_visible() }" class="button confirm fill static-confirm">
+				<div class="confirm-tick static-tick"></div>
+				<div class="confirm-caption">Освободить места</div>
+			</div>
+		</div>
+		<a class="button back" href="demo/planes2.html"></a>
+		<div class="popup done" data-bind="visible: display_result, template: 'register-confirmation'" style="display: none;"></div>
+		<div class="popup fail" data-bind="visible: display_error" style="display: none;">
+			<div class="register-error">
+				<div class="message" data-bind="text: error_message"></div>
+				<div class="close static-confirm" data-bind="event: { tap: hide_error }">Закрыть</div>
+			</div>
+		</div>
+		<div data-bind="css: loading" class="background">
+			<div class="center">
+				<div class="sandglass static-sandglass"></div>
+				<div class="caption">0%</div>
+			</div>
+		</div>
+	</body>
+</html>

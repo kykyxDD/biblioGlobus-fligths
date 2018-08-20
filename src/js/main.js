@@ -276,6 +276,7 @@ function start() {
 	groups = seats.slice().sort(by_axis).group(by_deck).map(spray)
 	groups = groups[0].concat(groups[1] || []).map(make(SeatGroup))
 
+
 	tiles = [].concat.apply([], decks.map(property('tiles'))).concat(groups, masks)
 	tiles.some(function(tile) { tile.p = decks[tile.d].elem })
 
@@ -417,7 +418,9 @@ function setup_viewmodel() {
 			view.user(user)
 			user.selected(true)
 
-			if(!previous || user.sc !== previous.sc) {
+			if(!previous || user.sc !== previous.sc || 
+				(user.child && user.child.infant) || 
+				(previous.child && previous.child.infant)) {
 				groups.some(method('draw'))
 			}
 			if(user.seat) {
@@ -920,7 +923,7 @@ Seat.findByPosition = function(x, y) {
 	var remains = seats.length, seat
 
 	while(seat = seats[--remains]) if(
-		(seat.match_service_class || C.DEMO      ) &&
+		((seat.match_service_class && seat.match_status_inf) || C.DEMO      ) &&
 		(!seat.user || seat === view.user().seat ) &&
 		(view.upper() ? !seat.low : seat.deck < 2) &&
 		(decks.length > 1 ? Seat.findByDeck(seat) : true ) &&
@@ -928,6 +931,7 @@ Seat.findByPosition = function(x, y) {
 	) return seat
 }
 Seat.findByDeck = function(seat){
+
 	var index_deck = +view.upper();
 	var letterSeat = seat.id.substr(0, 1)
 	var numSeat = +seat.id.substr(1)
@@ -990,6 +994,16 @@ Seat.prototype = {
 		this.X = this.x - this.group.size.left - this.size[0]
 		this.Y = this.y - this.group.size.top
 		this.match_service_class = view.user() && this.sc === view.user().sc
+		this.match_status_inf = this.checkStatusUserForInfant()
+
+	},
+	
+	checkStatusUserForInfant() {
+		var user = view.user()
+		return user && (
+			(this.forInfant && user.child && user.child.infant) || 
+			(!this.forInfant && (!user.child || (user.child && !user.child.infant)))
+		)
 	},
 	draw: function() {
 		this.updateState()
@@ -1004,7 +1018,7 @@ Seat.prototype = {
 		if(this.user) this.drawUnit(this.user,
 			this.X + this.sprite.offset.user[0] + this.size[0] - this.user.w,
 			this.Y + this.sprite.offset.user[1])
-		else if(this.match_service_class || C.DEMO) this.drawLabel(this.num)
+		else if((this.match_service_class && this.match_status_inf)|| C.DEMO) this.drawLabel(this.num)
 	},
 	drawUnit: function(img, x, y) {
 		this.group.context.drawImage(model.struct.sprite.image,

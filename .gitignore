@@ -1,4 +1,5 @@
 *.zip
 node_modules/
+dist/
 folder_dist_zip/
 image_flight/

@@ -17,7 +17,7 @@ var cfg = {
     
     dev: {
         
-        target: './dist',
+        target: './docs',
         
         assets: [
             './src/**/*.*',
@@ -108,7 +108,7 @@ gulp.task('copy:js', function() {
 gulp.task('build:js', function () {
     return gulp.src(data.js_build)
                 .pipe(rigger())
-                .pipe(uglify())
+                // .pipe(uglify())
                 .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
                 .pipe(gulp.dest(data.target + '/js'))
 })

@@ -104,7 +104,8 @@ var self = window.model = {
 
 				curseat   : '',
 				face      : {},
-				upper_deck : data['UPPERDECK'] ? data['UPPERDECK']: false
+				upper_deck : data['UPPERDECK'] ? data['UPPERDECK']: false,
+				infant: data.parent && data['IS_INF']
 			}
 
 			var seat = data['CURSEAT'] ? data['CURSEAT'].toUpperCase() : ''
@@ -135,9 +136,10 @@ var self = window.model = {
 			var seat = self.struct['seats'].select('num', info['no'].toUpperCase())
 
 			if(seat) {
+				var status_free = info['status'].toLowerCase() == 'i' || info['status'] === '*'
 				var mock = { child: !rand(20), age: rand(100), sex: 'mf'[rand(2)] },
 					back = seat.back || self.selectPassenger(seat.sid, mock),
-					free = info['status'] === '*',
+					free = status_free ,
 					user = self.users.select('curseat', seat.num)
 
 				var face =
@@ -148,6 +150,8 @@ var self = window.model = {
 
 				seat.user = face
 				seat.back = back
+
+				seat.forInfant = info['status'].toLowerCase() == 'i'
 				seat.sc   = info['sc']
 			}
 		})
