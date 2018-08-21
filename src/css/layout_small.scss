@@ -93,6 +93,15 @@ body {
 				top: 50%;
 				margin-top: -8px;
 			}
+			&.inf {
+				height: 16px;
+				.label {
+					margin-top: -3px;
+					svg {
+						height: 10px;
+					}
+				}
+			}
 		}
 		.name_seat {
 			padding-left: 5px;

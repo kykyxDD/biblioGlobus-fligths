@@ -92,6 +92,12 @@ body {
         width: 100%;
         top: 50%;
         margin-top: -8px; }
+      .popup_help .popup_help__info .box_wrap.inf {
+        height: 16px; }
+        .popup_help .popup_help__info .box_wrap.inf .label {
+          margin-top: -3px; }
+          .popup_help .popup_help__info .box_wrap.inf .label svg {
+            height: 10px; }
     .popup_help .popup_help__info .name_seat {
       padding-left: 5px; }
     .popup_help .popup_help__info .popop_help__listSeats {
